@@ -3,11 +3,6 @@ import { GroupeRepository } from '@/groupes/ports/groupe.repository';
 import { AxiosFactory, intercept401 } from '@/axios.factory';
 import { GroupeCatalogue } from '@/groupes/recupererCatalogueGroupes.usecase';
 
-/*interface GroupeApiModel {
-  label: string;
-  url: string;
-  is_url_externe: boolean;
-}*/
 interface GroupeCatalogueApiModel {
   id: string;
   name: string;

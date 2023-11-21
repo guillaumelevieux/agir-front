@@ -54,10 +54,10 @@
   import FilDAriane from '@/components/dsfr/FilDAriane.vue';
   import { ref } from 'vue';
   import { GroupeEventBusImpl } from '@/groupes/groupeEventBusImpl';
-  import { QuitterGroupeActifUsecase } from '@/groupes/quitterGroupe.usecase';
+  import { QuitterGroupeUsecase } from '@/groupes/quitterGroupe.usecase';
   import { GroupeRepositoryAxios } from '@/groupes/adapters/groupe.repository.axios';
   import { utilisateurStore } from '@/store/utilisateur';
-  import { JoindreGroupeActifUsecase } from '@/groupes/joindreGroupe.usecase';
+  import { JoindreGroupeUsecase } from '@/groupes/joindreGroupe.usecase';
 
   const props = defineProps<{
     groupeCatalogueViewModels: GroupeCatalogueViewModel;
@@ -80,7 +80,7 @@
   async function quitterGroupeActif(groupeId: string) {
     // eslint-disable-next-line no-console
     console.log('groupe id '+groupeId)
-    const useCase = new QuitterGroupeActifUsecase(new GroupeRepositoryAxios(), GroupeEventBusImpl.getInstance());
+    const useCase = new QuitterGroupeUsecase(new GroupeRepositoryAxios(), GroupeEventBusImpl.getInstance());
     const utilisateurId = utilisateurStore().utilisateur.id;
     await useCase.execute(utilisateurId, groupeId);
     emit('refreshCatalogueGroupes');
@@ -89,7 +89,7 @@
   async function joindreGroupeActif(groupeId: string) {
     // eslint-disable-next-line no-console
     console.log('groupe id '+groupeId)
-    const useCase = new JoindreGroupeActifUsecase(new GroupeRepositoryAxios(), GroupeEventBusImpl.getInstance());
+    const useCase = new JoindreGroupeUsecase(new GroupeRepositoryAxios(), GroupeEventBusImpl.getInstance());
     const utilisateurId = utilisateurStore().utilisateur.id;
     await useCase.execute(utilisateurId, groupeId);
     emit('refreshCatalogueGroupes');
