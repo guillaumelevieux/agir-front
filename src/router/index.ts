@@ -15,6 +15,8 @@ import PageCompte from '@/components/pages/PageCompte.vue';
 import PageAccueil from '@/components/pages/PageAccueil.vue';
 import PageCreationCompte from '@/components/pages/PageCreationCompte.vue';
 import PageArticle from '@/components/pages/PageArticle.vue';
+import PageGroupes from '@/components/pages/PageGroupes.vue';
+import PageMesGroupes from '@/components/pages/PageMesGroupes.vue';
 import PagePrevisualisationArticle from '@/components/pages/PagePrevisualisationArticle.vue';
 import PagePrevisualisationQuiz from '@/components/pages/PagePrevisualisationQuiz.vue';
 import PageBilanOnboarding from '@/components/pages/PageBilanOnboarding.vue';
@@ -154,6 +156,26 @@ const routes = [
         path: '/mes-aides/velo',
         name: 'mes-aides-velo',
         component: PageAidesVelo,
+      },
+    ],
+  },
+  {
+    path: '/groupes',
+    children: [
+      {
+        path: '/groupes',
+        name: 'groupes',
+        component: PageGroupes,
+      },
+    ],
+  },
+  {
+    path: '/mes-groupes',
+    children: [
+      {
+        path: '/mes-groupes',
+        name: 'mes-groupes',
+        component: PageMesGroupes,
       },
     ],
   },
