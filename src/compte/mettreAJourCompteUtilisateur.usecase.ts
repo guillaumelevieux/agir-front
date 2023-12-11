@@ -8,8 +8,8 @@ export class MettreAJourCompteUtilisateurUsecase {
     private sessionRepository: SessionRepository
   ) {}
 
-  execute(compteUtilisateurInput: CompteUtlisateurViewModel) {
-    this.compteUtilisateuRepository.mettreAjour({
+  async execute(compteUtilisateurInput: CompteUtlisateurViewModel) {
+    await this.compteUtilisateuRepository.mettreAjour({
       id: compteUtilisateurInput.id,
       abonnementTransport: compteUtilisateurInput.abonnementTransport,
       nom: compteUtilisateurInput.nom,

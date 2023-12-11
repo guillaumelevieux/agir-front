@@ -76,8 +76,9 @@
         revenuFiscal: revenuFiscal.value,
         nombreDePartsFiscales: nombreDePartsFiscales.value,
       };
-      await usecase.execute(donneeAMettreAjour);
-      await router.push({ name: 'mes-aides-velo' });
+      await usecase.execute(donneeAMettreAjour).then(() => {
+        router.push({ name: 'mes-aides-velo' });
+      });
     }
   }
 </script>
