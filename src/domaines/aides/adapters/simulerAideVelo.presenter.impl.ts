@@ -13,7 +13,7 @@ export class SimulerAideVeloPresenterImpl implements SimulerAideVeloPresenter {
         libelle: aide.libelle,
         description: aide.description,
         lien: aide.lien,
-        montant: aide.montant,
+        montant: Number(aide.montant.toFixed(0)),
         logo: aide.logo,
       }));
 
